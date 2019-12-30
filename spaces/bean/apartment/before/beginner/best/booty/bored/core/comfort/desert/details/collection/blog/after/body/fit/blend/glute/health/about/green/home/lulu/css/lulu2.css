@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: #fff;
+    font-family: Maison Neue,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.clearfix::after {
+    content: '. ';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+     
+}
+
+/* ------------------------------ */
+/* REUSABLE COMPONENTS */
+/* ------------------------------ */
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+    display: block;
+}
+
+.value{
+  margin-top: 20px;
+ display: inline-block;
+ padding: 10px 30px;
+ font-weight: 300;
+ text-decoration: none;
+}
+
+.logo{
+    height: 60px;
+    width: auto;
+    float: left;
+}
+
+/* -------------------------------------- */
+/* MAIN-NAV */
+/* -------------------------------------- */
+.main-nav{
+    float: right;
+    list-style: none;
+    margin-top: 60px;
+}
+
+.main-nav a{
+    display: inline-block;
+    margin-left: 40px;
+    float: left;
+    margin-top: 20px;
+}
+
+.main-nav  a:link,
+.main-nav  a:visited{
+    padding: 8px 0;
+    color: #403d3d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav  a:active{
+   border-bottom: 2px solid #403d3d; 
+}
+
+ .main-nav{margin-top: 18px; }
+
+ .main-nav  a:link,
+ .main-nav  a:visited{
+    padding: 16px 0;
+    color: #555;
+}
+
+
+/* --------------------------------------- */
+/* HEADER */
+/* --------------------------------------- */
+h1,
+h2,
+h3,
+h4{
+ text-align: left;
+ font-weight: 400;
+ letter-spacing: 1px;
+ word-spacing: 2px;
+}
+
+h1{
+ margin-top: 40px;
+  color: #5f7495;
+  font-family: 'JosefinSlab';
+  font-size: 40px;
+}
+
+h3{
+ font-size: 20px;
+ color: #403d3d;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h4{
+ color: #fff;
+ font-size: 20px;
+ margin-bottom: 25px;
+}
+
+/* ------------------------------------- */
+/* FOOTER-MAIN-DIV */
+/* ------------------------------------- */
+.footer-main-div{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background: #403a3a;
+  z-index: 1;
+  padding: 20px 0px;
+}
+
+.heart{
+ font-size:20px;
+ display: inline-block;
+ padding: 4px 8px;
+ font-weight: 300;
+ text-decoration: none;
+ color: #fff;
+ text-align: left;
+}
+
+.heart:hover,
+.heart:active{
+   border-bottom: 2px solid #ffffff; 
+}
+
+/* ------------------------------------- */
+/* PARAGRAPH */
+/* ------------------------------------- */
+.long-copy,
+.long-end{
+ word-spacing: 1px;
+ letter-spacing: 1px;
+ font-weight: 400;
+}
+
+.long-copy{
+   text-align: left;
+   font-size: 15px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   color: #403d3d;
+}
+
+.long-end{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* ---------------------------------------- */
+/* SECTION-PANEL */
+/* ----------------------------------------- */
+.section-panel{
+    width: 100vw;
+    max-width: 100%;
+    overflow: 100%;
+    margin-top: 10px;
+    background: #fff;
+}
+
+.section-panel .row-panel{
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+panel-image{
+  flex: 0 0 auto;
+  width: 100px;
+  position:  relative;
+  z-index: 4;
+}
+
+.section-panel .text{
+    margin-left: 4.85vw;
+    flex: 0 0 auto;
+    width:  492px;
+    position: relative;
+    z-index: 5;
+    max-width: 492px;
+}
+
+.section-panel .text .flush-panel{
+    font-size: 15px;
+    margin-left: -3px;
+    line-height: 10px;
+    letter-spacing: 1px;
+}
+
+.flush-panel{
+    font-size: 15px;
+    line-height: 10px;
+    letter-spacing: .5px;
+}
+
+.section-panel .text .long-panel{
+    font-size: 10px;
+    font-size: 13px;
+    line-height: 2em;
+}
+
+.long-panel{
+    color: #403d3d;
+    margin: 0;
+    margin-top: 20px;
+}
+
+
+.demi{
+  color: #46a48c;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* -------------------------------------- */
+/* DD AND DT *
+/* -------------------------------------- */
+
+body#productDetailPage d1.product-details{
+    margin: 0;
+}
+
+.clearfix{
+    zoom: 1;
+}
+
+body#productDetailPage,
+d1.product-details dt {
+    clear: both;
+    font-weight: bold;
+    width: 12em;
+    font-size: 20px;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+body#productDetailPage,
+d1.product-details dt{
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+body#productDetailPage,
+d1.product-details dd {
+    margin-left: 10px;
+    font-size: 15px;
+    line-height: normal;
+}
+
+body#productDetailPage,
+d1.product-details dd {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------ */
+/* OL LI UL LI */
+/* ------------------------------------- */
+
+.preFooter{
+    background: #514847;
+    border-bottom: 1px solid #97918e;
+    margin-top: 60px;
+}
+
+ol li, ul li{
+    font-size: 14px;
+    line-height: 22px;
+}
+
+ol li, ul li{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+ol li, ul li{
+    margin: 12px 0;
+    line-height: 22px;
+    color: #fff;
+}
+
+
+li a:link,
+li a:visited{
+    padding: 8px 0;
+    color:  #ffd56d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+#socialNavigator li a span{
+    color: #ffd56d;
+    font-size: 20px;
+    font-family: 'OpenSans';
+    font-weight: 300;
+    display: inline-block;
+    margin: 9px 15px;
+}
+
+span{
+  font-size: 20px;
+ font-family: 'OpenSans';
+ font-weight: normal;
+}
+
+.preFooter .end{
+    flex-direction: column;
+    padding-top: 32px;
+    border-top: 1px solid #97918e;
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+}

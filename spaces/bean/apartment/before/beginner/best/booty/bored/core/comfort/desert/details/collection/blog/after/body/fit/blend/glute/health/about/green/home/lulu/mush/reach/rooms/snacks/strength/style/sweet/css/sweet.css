@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: #fff;
+    font-family: Maison Neue,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.clearfix::after {
+    content: '. ';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+     
+}
+
+/* ------------------------------ */
+/* REUSABLE COMPONENTS */
+/* ------------------------------ */
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+    display: block;
+}
+
+
+.item-box{
+ margin-right: 28px;
+ align-self: flex-end;
+ margin-bottom: 34px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ margin-top: 20px;
+}
+
+strong{
+ font-weight: 600;
+ color: #000;
+}
+
+/* --------------------------- */
+/* NAVIGATOR BAR */
+/* --------------------------- */
+ul{
+ margin: 0px;
+ padding: 0px;
+ list-style: none;
+}
+
+ul li{
+ float: left;
+ width: 200px;
+ height: 40px;
+ background-color: #fff;
+ opacity: .8;
+ line-height: 40px;
+ text-align: center;
+ font-size: 15px;
+ margin-left: 20px;
+}
+
+
+ul li a {
+ text-decoration: none;
+ color: #000;
+ display: block;
+}
+
+ul li a:hover{
+ background-color: #313444;
+ color: #ffffff;
+}
+
+ul li ul li{
+ display: none;
+ background-color: #212432;
+}
+
+ul li:hover ul li{
+  display: block;
+}
+
+/* ------------------------- */
+/* HEADER */
+/* ------------------------ */
+header{
+  background-image: url(img/sweet1.jpg);
+   height: 70vh;
+   background-attachment: fixed;
+   margin-top: 60px;
+}
+
+h1{
+ margin-top: 40px;
+  font-size: 40px;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+}
+
+/* ----------------------- */
+/*  PARAGRAPH */
+/* ----------------------- */
+.long-copy,
+.long-end{
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.long-copy{
+  margin-top: 40px;
+  font-size: 15px;
+ color:  #6d6666;
+  line-height: 25px;
+}
+
+.demi{
+  color: #4296cb;
+  font-weight: 400;
+  text-decoration: none;
+}
+/* ------------------------------------------- */
+/* BUTTON */
+/* ------------------------------------------- */
+
+.btn:link, 
+.btn:visited, 
+input[type=submit]{
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    margin-top: 100px;
+    border: 20px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+}
+
+.btn-ghost:link,
+.btn-ghost:visited, 
+input[type=submit]{
+  background-color: #0d0de8;;
+  border: 5px solid #0d0de8;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover
+input[type=submit]:active{
+  background-color:  #0e0ec9;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #0e0ec9;
+}
+
+.no-pad{
+  padding-bottom: 0;
+  font-size: 15px;
+  margin-top: 40px;
+}
+
+.value{
+  font-weight: 600;
+  margin-top: 40px;
+  color: #4e5262;
+}
+
+
+
+/* --------------------------------------- */
+/* FOOTER */
+/* --------------------------------------- */
+.footer-main-div{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background: #222533;
+  padding: 20px 0px;
+ margin-top: 40px;
+}
+
+.nodes{
+ font-size: 13px;
+ font-weight: 600;
+ margin-top: 10px;
+ color: #f0efef;
+ text-align: left;
+ margin-left: 20px;
+ transition: background-color 0.2s, border 0.2s, color 0.2s;
+ transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.nodes:hover,
+.nodes:active{
+    background-color: #6cabd3;
+}
+
+.footer-main-div .end{
+    flex-direction: column;
+    padding-top: 32px;
+    border-top: 1px solid #3a3d4d;
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+}
+
+
+
+
+.long-end{
+ color: #7b7f92;
+ font-size: 13px;
+}
