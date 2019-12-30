@@ -1,5 +1,7 @@
 const winston = require('winston');
 const express = require('express');
+
+// Start express app
 const app = express();
 
 require('../fitness-blender/startup/logging')();
