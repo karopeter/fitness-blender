@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey": "blender_jwtPrivateKey"
+    "jwtPrivateKey": "blender_jwtPrivateKey",
+    "db": "blender_db"
 }
