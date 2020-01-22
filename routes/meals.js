@@ -1,6 +1,7 @@
 const {Meal, validate} = require('../models/meal');
 const {Customer} = require('../models/customer');
 const {Program} = require('../models/program');
+const AppError = require('./../utils/appError');
 const mongoose = require('mongoose');
 const Fawn = require('fawn');
 const express = require('express');
@@ -15,17 +16,27 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) {
+    return next(new AppError('No meal with the give ID found', 400))
+  }
 
   const customer = await Customer.findById(req.body.customerId);
-  if (!customer) return res.status(400).send('Invalid customer.');
+
+  if (!customer) {
+    return next(new AppError('No customer with the given ID found', 404))
+  }
 
   const program = await Program.findById(req.body.programId);
-  if (!program) return res.status(400).send('Invalid program.');
+  
+  if (!program) {
+     return next(new AppError('No program with the given ID found', 404))
+  }
 
-  if (program.workOutVideos === 0) return res.status(400).send('Program not in stock.');
+  if (program.workOutVideos === 0) {
+    return next(new AppError('Program not in stock'))
+  }
 
   let meal = new Meal({
       customer: {
@@ -56,11 +67,18 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const meal = await Meal.findById(req.params.id);
+  const meal = await meals.findById(req.params.id);
 
-  if (!meal) return res.status(400).send('The meal with the given ID was not found.');
-
-   res.send(meal);
+  if (!meal) {
+     return next(new AppError('No meal with the given ID found', 404))
+  }
+ 
+   res.status(200).json({
+     status: 'success',
+     data: {
+       meal
+     }
+   });
 });
 
 

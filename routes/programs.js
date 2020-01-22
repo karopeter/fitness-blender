@@ -1,5 +1,6 @@
 const {Program, validate} = require('../models/program');
 const {Blender} = require('../models/blender');
+const AppError = require('./../utils/appError');
 const express = require('express');
 const router = express.Router();
 
@@ -9,12 +10,11 @@ router.get('/', async (req, res) => {
    res.send(programs);
 });
 
-router.post('/', async (req, res) => {
-   const { error } = validate(req.body);
-   if (error) return res.status(400).send(error.details[0].message);
-
+router.post('/', async (req, res, next) => {
    const blender = await Blender.findById(req.body.blenderId);
-   if (!blender) return res.status(400).send('Invalid blender.');
+   if (!blender) {
+      return next(new AppError('No program with the given ID found', 400))
+   }
 
    const program = new Program({
      title: req.body.title,
@@ -27,16 +27,20 @@ router.post('/', async (req, res) => {
    });
    await Program.save();
 
-   res.send(program);
+   res.status(200).json({
+     status: 'success',
+     data: {
+       program
+     }
+   });
 });
 
 
-router.put('/:id', async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
+router.put('/:id', async (req, res, next) => {
   const blender = await Blender.findById(req.body.blenderId);
-  if (!blender) return res.status(400).send('Invalid blender.');
+  if (!blender) {
+    return next(new AppError('No blender with given ID found', 404))
+  }
 
   const program = await Program.findByIdAndUpdate(req.params.id, 
     {
@@ -49,24 +53,46 @@ router.put('/:id', async (req, res) => {
     dailyWorkExcersis: req.body.dailyWorkExcersis
   }, { new: true });
 
-  if (!program) return res.status(404).send('The program with the given ID was not found.');
+  if (!program) {
+    return next(new AppError('No program with given ID found', 404))
+  }
 
-  res.send(program);
+   res.status(200).json({
+      status: 'success',
+      data: {
+       program
+      }
+   });
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
   const program = await Program.findByIdAndRemove(req.params.id);
 
-  if (!program) return res.status(404).send('The program with the given ID was not found.');
+  if (!program) {
+     return next(new AppError('No program with given ID found', 404))
+  }
 
-  res.send(program);
+  res.status(204).json({
+    status: 'success',
+    data: {
+      program
+    }
+  });
 });
 
-router.get('/:id', async (req, res) => {
-  const program = await Program.findById(req.params.id);
+router.get('/:id', async (req, res, next) => {
+  const program = await programs.findById(req.params.id);
 
-  if (!program) return res.status(404).send('The program with the given ID was not found.');
-
-  res.send(program);
+  if (!program) {
+     return next(new AppError('No program with the given ID found', 404))
+  }
+  
+  res.status(200).json({
+    status: 'success',
+    data: {
+      program
+    }
+  });
 });
+
 module.exports = router;

@@ -4,10 +4,11 @@ const validate = require('../middleware/validate');
 const {Meal} = require('../models/meal');
 const {Program} = require('../models/program');
 const auth = require('../middleware/auth');
+const AppError = require('./../utils/appError');
 const express = require('express');
 const router = express.Router();
 
-router.post('/', [auth, validate(validateReturn)], async(req, res) => {
+router.post('/', [auth, validate(validateReturn)], async(req, res, next) => {
    // if (!req.body.customerId) return res.status(400).send('customerId  not provided');
   //if (!req.body.programId) return res.status(400).send('programId not provided.');
 
@@ -15,9 +16,13 @@ router.post('/', [auth, validate(validateReturn)], async(req, res) => {
         'customer._id': req.body.customerId,
         'program._id': req.body.programId,
     });
-    if (!meal) return res.status(404).send('Meal not found.');
+    if (!meal) {
+        return next(new AppError('No mean with the given ID found', 404))
+    }
 
-    if (meal.dateReturned) return res.status(400).send('Return already processed.');
+    if (meal.dateReturned) {
+       return res.status(400).send('Return already processed.')
+    }
 
     meal.dateReturned = new Date();
     const mealDays = moment().diff(meal.dateOut, 'days') 
@@ -28,8 +33,12 @@ router.post('/', [auth, validate(validateReturn)], async(req, res) => {
         $inc: { workOutVideos: 1 }
     });
 
-
-    return res.status(200).send(meal);
+     res.status(200).json({
+         status: 'success',
+         data: {
+           meal
+         }
+     })
 });
 
 function validateReturn(req) {
