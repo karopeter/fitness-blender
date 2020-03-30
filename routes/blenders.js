@@ -29,6 +29,7 @@ router.post('/', auth, async (req, res, next) => {
   }
 
   let blender = new Blender({ name: req.body.name });
+  blender = await blender.save();
   
    res.status(200).json({
      status: 'success',

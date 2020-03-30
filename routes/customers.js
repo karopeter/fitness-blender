@@ -30,7 +30,7 @@ router.post('/:id', async (req, res, next) => {
 
 
 router.put('/:id', async (req, res, next) => {
-  const customer = await Blender.findByIdAndUpdate(req.params.id, req.body, {
+  const customer = await Customer.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     validate: true
   });
